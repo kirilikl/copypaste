@@ -30,7 +30,7 @@ def on_key_down(key):
         dino.image = "dino1"
         cactus.pos = (WIDTH - cactus.width, 170)
 
-    if key == keys.SPACE and not jumping:
+    elif key == keys.SPACE and not jumping:
         jump_speed = 13
         jumping = True
 
