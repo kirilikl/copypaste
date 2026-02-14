@@ -28,8 +28,16 @@ def on_key_down(key):
         jumping = True
         jump_speed = 13
     
-
-
+def update(dt):
+    global state, jumping, jump_speed
+    if state == "running":
+        if jumping:
+            dino.y -= jump_speed
+            jump_speed -=1
+            if jump_speed <= -13:
+                dino.y = 160
+                jump_speed = 0
+                jumping = False
 
 
 
