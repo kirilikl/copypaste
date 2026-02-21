@@ -9,6 +9,9 @@ bg = Actor("bg2")
 bird = Actor("bird1")
 pipe_top = Actor("top")
 pipe_bottom = Actor("bottom")
+gameover = Actor("gameover")
+gameover.y = HEIGHT//2
+gameover.x = WIDTH//2
 bird.x = 50            
 bird.y = HEIGHT//2
 
@@ -39,10 +42,14 @@ def update(dt):
         if bird.colliderect(pipe_top) or bird.colliderect(pipe_bottom) or bird.y < 0 or bird.y > HEIGHT:
             pipe_speed = 0
 
-def draw():        
+
+def draw():
+    global gameover  
     screen.clear() 
     bg.draw()      
     bird.draw()
     pipe_top.draw()
     pipe_bottom.draw()
+    if pipe_speed == 0:
+        gameover.draw()
 
