@@ -26,6 +26,11 @@ def draw():
 #ОСНОВНОЙ ИГРОВОЙ ЦИКЛ
 def update(dt):
     cookie.angle += 1
+    for i in points_pos:
+        if i[1] > 0:
+            i[1] -=4
+        else:
+            points_pos.remove(i)
 #ОБРАБОТЧИК МЫШИ
 def on_mouse_down(button, pos):
     global cookies
