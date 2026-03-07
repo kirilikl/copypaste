@@ -19,3 +19,14 @@ def draw():
 #ОСНОВНОЙ ИГРОВОЙ ЦИКЛ
 def update(dt):
     cookie.angle += 1
+#ОБРАБОТЧИК МЫШИ
+def on_mouse_down(button, pos):
+    global cookies
+    if button == mouse.LEFT and cookie.collidepoint(pos):
+        cookies += 1
+
+
+
+
+
+
