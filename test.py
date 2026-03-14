@@ -28,6 +28,8 @@ garden.amount = 0
 def autoclickFunc():
     global cookies
     cookies += cursor.value * cursor.amount
+    cookies += grandma.value * grandma.amount
+    cookies += garden.value * garden.amount
  
 #ТАЙМЕР
 clock.schedule_interval(autoclickFunc, 1)
@@ -38,6 +40,11 @@ def draw():
     cookie.draw()
     cursor.draw()
     screen.draw.text(str(cursor.price), center=(cursor.x, cursor.y+50), color=(255, 255, 255), fontsize=25)
+    grandma.draw()
+    screen.draw.text(str(grandma.price), center=(grandma.x, grandma.y+50), color=(255, 255, 255), fontsize=25)
+    garden.draw()
+    screen.draw.text(str(garden.price), center=(garden.x, garden.y+50), color=(255, 255, 255), fontsize=25)
+    
     screen.draw.text(str(cookies), center=(WIDTH//2,  50), color=(255, 153, 51), fontsize=50)
     for i in points_pos:
         screen.draw.text("+1", center=i, color=(255, 255, 255), fontsize=30)
@@ -60,4 +67,14 @@ def on_mouse_down(button, pos):
             cursor.amount += 1
             cookies -= cursor.price
             cursor.price = int(cursor.price * 1.5)
+    if button == mouse.LEFT and grandma.collidepoint(pos):
+        if cookies >= grandma.price:
+            grandma.amount += 1
+            cookies -= grandma.price
+            grandma.price = int(grandma.price * 1.5)
+    if button == mouse.LEFT and garden.collidepoint(pos):
+        if cookies >= garden.price:
+            garden.amount += 1
+            cookies -= garden.price
+            garden.price = int(garden.price * 1.5)
  
