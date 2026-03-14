@@ -8,10 +8,22 @@ points_pos = []
 #ПЕРСОНАЖИ
 bg = Actor("bgBlue")
 cookie = Actor("cookie", (WIDTH//2, HEIGHT//2))
+
 cursor = Actor("cursor", (50, HEIGHT//2))
 cursor.value = 1
 cursor.price = 10
 cursor.amount = 0
+
+grandma = Actor('grandma', (50, HEIGHT//2 + 110))
+grandma.value = 5
+grandma.price = 50
+grandma.amount = 0
+
+garden = Actor('garden', (50, HEIGHT//2 + 200))
+garden.value = 10
+garden.price = 500
+garden.amount = 0
+
 #СВОИ ФУНКЦИИ
 def autoclickFunc():
     global cookies
