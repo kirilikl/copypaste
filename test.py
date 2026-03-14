@@ -16,7 +16,7 @@ cursor.amount = 0
 def autoclickFunc():
     global cookies
     cookies += cursor.value * cursor.amount
-
+ 
 #ТАЙМЕР
 clock.schedule_interval(autoclickFunc, 1)
 #ФУНКЦИЯ ОТРИСОВКИ
@@ -44,4 +44,8 @@ def on_mouse_down(button, pos):
        points_pos.append(pos)
        cookies += 1
     if button == mouse.LEFT and cursor.collidepoint(pos):
-        autoclick += 1
+        if cookies >= cursor.price:
+            cursor.amount += 1
+            cookies -= cursor.price
+            cursor.price = int(cursor.price * 1.5)
+ 
